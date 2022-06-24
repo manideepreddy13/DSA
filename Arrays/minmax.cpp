@@ -14,6 +14,11 @@ int main(){
     double max = -INFINITY;
     double min = INFINITY;
 
+
+
+
+
+
     for(i=0;i<n;i++){
         if(arr[i] > max){
             max = arr[i];
