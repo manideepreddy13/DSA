@@ -24,6 +24,20 @@ node *createnode(int num)
     return temp;
 }
 
+// node can also be defined using class template
+
+class node1
+{
+    int data;
+    node1 *next;
+
+    node1(int k)
+    {
+        data = k;
+        next = NULL;
+    }
+};
+
 int main()
 {
     int a, b, c;

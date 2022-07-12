@@ -24,9 +24,12 @@ node *head = NULL;
 void deletion(int n)
 {
     int i;
+    node *ptr;
     if (n == 1)
     {
+        ptr = head;
         head = head->next;
+        free(ptr);
     }
     else
     {
