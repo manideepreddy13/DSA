@@ -59,6 +59,64 @@ void insertatend(node *ptr)
     }
 }
 
+// Reversing a doubly linked list means swapping prev and next pointers of each node
+// Time Complexity : O(n)
+
+void reverselist()
+{
+    node *temp, *ptr;
+    ptr = head;
+
+    while (ptr != NULL)
+    {
+        temp = ptr->prev;
+        ptr->prev = ptr->next;
+        ptr->next = temp;
+        temp = temp->prev;
+    }
+}
+
+// Time Complexity : O(1)
+
+void deleteatstart()
+{
+    node *temp;
+    if (head->next == NULL)
+    {
+        free(head);
+    }
+    else
+    {
+        temp = head;
+        head = head->next;
+        head->prev = NULL;
+        free(temp);
+    }
+}
+
+// Time Complexity : O(n)
+
+void deleteatend()
+{
+    node *temp;
+    if (head->next == NULL)
+    {
+        free(head);
+    }
+    else
+    {
+        temp = head;
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+
+        node *pv = temp->prev;
+        pv->next = NULL;
+        free(temp);
+    }
+}
+
 // Time Complexity : O(n)
 
 void printlist()
