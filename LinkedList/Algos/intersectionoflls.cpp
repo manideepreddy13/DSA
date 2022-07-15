@@ -78,6 +78,39 @@ node *intersection(node *head1, node *head2)
     return temp;
 }
 
+// But sometimes we can encounter a runtime error with this algorithm.
+// So we come up with another one
+
+node *intersection1(node *head1, node *head2)
+{
+    node *temp1, *temp2;
+    temp1 = head1;
+    temp2 = head2;
+
+    while (temp1 != temp2)
+    {
+        if (temp1->next == NULL)
+        {
+            temp1 = head2;
+        }
+        else
+        {
+            temp1 = temp1->next;
+        }
+
+        if (temp2->next == NULL)
+        {
+            temp2->next = head1;
+        }
+        else
+        {
+            temp2 = temp2->next;
+        }
+
+        return temp1;
+    }
+}
+
 int main()
 {
 
