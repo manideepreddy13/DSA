@@ -19,10 +19,15 @@ node *createnode(int k)
 
 node *head = NULL;
 
+// Here we segregate even and odd elements with even spearheading the list. Then we append both the lists
+//
+
 void evenandodd()
 {
     node *evenhead = NULL;
+    node *eventail = NULL;
     node *oddhead = NULL;
+    node *oddtail = NULL;
     node *dummy;
 
     node *temp = head;
@@ -30,16 +35,34 @@ void evenandodd()
     {
         if (temp->data % 2 == 0)
         {
-            dummy = createnode(temp->data);
             if (evenhead == NULL)
             {
-                evenhead = dummy;
+                evenhead = temp;
+                eventail = temp;
             }
             else
             {
+                eventail->next = temp;
+                eventail = eventail->next;
+            }
+        }
+        else
+        {
+            if (oddhead == NULL)
+            {
+                oddhead = temp;
+                oddtail = temp;
+            }
+            else
+            {
+                oddtail->next = temp;
+                oddtail = oddtail->next;
             }
         }
     }
+
+    eventail->next = oddhead;
+    oddtail->next = NULL;
 }
 
 int main()
