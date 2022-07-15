@@ -20,7 +20,7 @@ node *createnode(int k)
 node *head = NULL;
 
 // Here we segregate even and odd elements with even spearheading the list. Then we append both the lists
-//
+// Time Complexity : O(n)
 
 void evenandodd()
 {
@@ -38,7 +38,7 @@ void evenandodd()
             if (evenhead == NULL)
             {
                 evenhead = temp;
-                eventail = temp;
+                eventail = evenhead;
             }
             else
             {
@@ -51,7 +51,7 @@ void evenandodd()
             if (oddhead == NULL)
             {
                 oddhead = temp;
-                oddtail = temp;
+                oddtail = oddhead;
             }
             else
             {
