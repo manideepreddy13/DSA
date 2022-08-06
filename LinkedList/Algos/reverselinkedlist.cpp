@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <stack>
 using namespace std;
 
 struct node
@@ -40,6 +41,8 @@ void reverselist1()
 }
 
 // Reversing linked list in a recursive manner
+// Time Complexity : O(n)
+// Space Complexity : O(n) as we are using implicit stack (computer stack) to hold recursive function calls
 
 void reverselist2(node *ptr)
 {
@@ -53,6 +56,32 @@ void reverselist2(node *ptr)
         node *q = ptr->next;
         q->next = ptr;
         ptr->next = NULL;
+    }
+}
+
+// Reversing linked list using stack
+// Time and Space Complexity is same as of Recursive Manner of Reversing List except that here we are using an explicit stack object
+
+void reverselist3()
+{
+    stack<node *> stk;
+    node *temp;
+    temp = head;
+    while (temp != NULL)
+    {
+        stk.push(temp);
+        temp = temp->next;
+    }
+
+    head = stk.top();
+    temp = head;
+    stk.pop();
+
+    while (stk.empty() != 1)
+    {
+        temp->next = stk.top();
+        stk.pop();
+        temp = temp->next;
     }
 }
 
